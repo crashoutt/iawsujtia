@@ -33,7 +33,7 @@ function playMusicAndHideOverlay() {
       alert('Failed to play video. Ensure the video file has an audio track and is accessible.');
     });
 
-    // Animate in social buttons with staggered delay
+
     socialButtons.forEach((button, i) => {
       setTimeout(() => {
         button.classList.add('animate');
@@ -124,7 +124,7 @@ function hideSocialButtons() {
 document.addEventListener('DOMContentLoaded', function() {
   createParticles();
   init3DTilt();
-  hideSocialButtons(); // Ensure social buttons are hidden initially
+  hideSocialButtons();
   setTimeout(initTypewriter, 0);
 
   const overlay = document.getElementById('overlay');
@@ -133,3 +133,4 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('entered');
   });
 });
+
