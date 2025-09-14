@@ -101,7 +101,7 @@ body {
     0 0 20px var(--accent-red),
     0 0 30px var(--text-primary);
   margin-bottom: 1rem;
-  font-size: 2rem; /* Smaller because this font is large */
+  font-size: 2rem; 
   font-weight: normal;
   letter-spacing: 1px;
   background: linear-gradient(135deg, var(--accent-red), var(--text-secondary));
@@ -337,7 +337,7 @@ body {
   margin-top: 1rem;
 }
 
-/* Social buttons hidden by default, slide up on .animate class (like ODK) */
+
 .social-button {
   position: relative;
   width: 65px;
@@ -480,3 +480,4 @@ body {
     padding: 1rem;
   }
 }
+
