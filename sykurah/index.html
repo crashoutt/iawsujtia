@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Quiz for My Princess</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+TAS:wght@100..400&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h1 id="page-title">💖 Quiz 💖</h1>
+  
+  <div id="intro">
+    <p>My princesss! quick quiz</p>
+    <button onclick="startQuiz()">Start</button>
+  </div>
+
+  <!-- Quiz content moved inside container -->
+  <div id="quiz" class="hidden">
+    <div id="points" class="points">Points: 0 / 8</div>
+    <div id="question-container"></div>
+    <input type="text" id="answer-input" class="hidden" placeholder="Type your answer">
+    <div id="options"></div>
+  </div>
+
+  <div id="message" class="hidden">
+    <p id="full-paragraph"></p>
+  </div>
+</div>
+
+<!-- Custom popup -->
+<div id="popup" class="popup hidden">
+  <p>Oops! Try again 😘</p>
+  <button onclick="closePopup()">OK</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
