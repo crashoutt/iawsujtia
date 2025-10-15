@@ -1,0 +1,196 @@
+/* Body & container */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Playwrite AU TAS', sans-serif; 
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: #111;
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;        
+  box-shadow: 0 0 40px rgba(255, 77, 109, 0.4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+p, h1, input, button {
+  font-family: 'Playwrite AU TAS', sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Points display */
+.points {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #ff4d6d;
+  text-align: center;
+}
+
+/* Title */
+h1 {
+  margin-bottom: 20px;
+  color: #ff4d6d;
+  font-size: 2rem;
+  text-shadow: 0 0 15px #ff4d6d;
+}
+
+/* Paragraph text */
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0 0 15px 0;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Question container */
+#question-container {
+  background: #1c1c1c;
+  padding: 20px 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.2);
+  width: 100%;
+  text-align: center;
+}
+
+/* Input field */
+input[type="text"] {
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 2px solid #ff4d6d;
+  background: #222;
+  color: #fff;
+  font-size: 1rem;
+  width: 90%;
+  outline: none;
+  transition: 0.3s;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+input[type="text"]:focus {
+  border-color: #ff1a4d;
+  box-shadow: 0 0 10px #ff4d6d;
+}
+
+/* Buttons */
+button {
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.3);
+}
+
+button:hover {
+  background: #ff1a4d;
+  box-shadow: 0 0 25px rgba(255, 77, 109, 0.6);
+}
+
+/* Options container */
+#options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Hearts animation */
+@keyframes float {
+  0% { transform: translateY(0) scale(1);}
+  50% { transform: translateY(-50px) scale(1.2);}
+  100% { transform: translateY(0) scale(1);}
+}
+
+/* Custom popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #222;
+  padding: 15px 25px;        /* slightly smaller */
+  border-radius: 15px;       /* a bit tighter */
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.8);
+  z-index: 999;
+  color: #fff;
+  max-width: 90%;            /* ensure it fits mobile screens */
+}
+
+/* Popup text */
+.popup p {
+  margin-bottom: 10px;
+  font-size: 0.95rem;        /* slightly smaller */
+}
+
+/* Popup button */
+.popup button {
+  padding: 6px 15px;         /* smaller than quiz buttons */
+  font-size: 0.9rem;         /* slightly smaller text */
+  border-radius: 15px;       /* tighter */
+  background: #ff4d6d;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.popup button:hover {
+  background: #ff1a4d;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  input[type="text"] {
+    width: 95%;
+    padding: 10px 12px;
+  }
+
+  button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+}
