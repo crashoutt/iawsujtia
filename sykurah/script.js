@@ -1,4 +1,4 @@
-// Paragraph split into parts
+// Paragraph split into parts (updated to include your full message, split into 9 parts)
 const paragraphParts = [
   "my baby, my princessss, my everything i love you so much, baby. i love spending time with you and hanging out with you, my love.",
   "you’re literally always on my mind, and i couldn’t wish for better. even though you say i hate you so much, call me a retard all the time, and tell me to die, i really do love you, my princess.",
@@ -11,27 +11,23 @@ const paragraphParts = [
   "You are such a good girlfriend genuinely, you’re so perfect, my love. You’re smart, funny, beautiful, pretty, and absolutely gorgeous. Whenever you feel down about anything, baby, I’m here for you. I’ll always listen to your problems and help you, my baby. You’re at the gym right now and not with me, and I miss you so much. I really do love you for the hundredth time and I’m not trolling, so stop saying that before I fuck the shit out of you!\n\n-your awesome husband"
 ];
 
-// Quiz questions
+
+// New Questions
 const questions = [
   { type: "s", question: "What is my favorite thing about you?", answer: "when i yap" },
-  { type: "s", question: "What do you always call me?", answer: "bigger" },
+  { type: "s", question: "What do you always call me?", answer: "nigger" },
   { type: "mc", question: "What is my age? (don't get it wrong!)", options: ["19", "25", "17"], answer: "17" },
   { type: "mc", question: "Am I funny af or sped?", options: ["sped", "funny"], answer: "funny", wrongMessage: "wow... thats so sweet baby 😘, try again!" },
   { type: "s", question: "Who is my favorite person?", answer: "me" },
   { type: "s", question: "What are my favorite foods? (list with commas)", answer: "steak, lobster" },
   { type: "mc", question: "Is my rage bait hella good?", options: ["yes", "yes", "yes"], answer: "yes" },
   { type: "mc", question: "Who wears the pants in the relationship?", options: ["you", "me", "both"], answer: "you" },
-  { type: "mc", question: "What is my favorite name to be called?", options: ["Daddy", "baby", "handsome", "sweet boy"], answer: ["handsome", "Daddy"] }
+  { type: "mc", question: "What is my favorite name to be called?", options: ["Daddy", "baby", "handsome", "sweet boy"], answer: "handsome" }
 ];
 
 let currentIndex = 0;
 let revealedParagraph = "";
 let points = 0;
-
-// Audio setup
-const audio = new Audio("love.mp3");
-audio.loop = false;
-audio.volume = 0.5;
 
 // Start quiz
 function startQuiz() {
@@ -41,7 +37,7 @@ function startQuiz() {
   showQuestion();
 }
 
-// Show current question
+// Show question
 function showQuestion() {
   const q = questions[currentIndex];
   const container = document.getElementById("question-container");
@@ -60,7 +56,7 @@ function showQuestion() {
     q.options.forEach(opt => {
       const btn = document.createElement("button");
       btn.innerText = opt;
-      btn.onclick = () => checkAnswer(opt);
+      btn.onclick = () => { checkAnswer(opt); };
       optionsDiv.appendChild(btn);
     });
   } else {
@@ -88,16 +84,7 @@ function checkAnswer(selected = null) {
     answer = selected.toLowerCase();
   }
 
-  let isCorrect = false;
-
-  if (Array.isArray(q.answer)) {
-    // Multiple correct answers
-    isCorrect = q.answer.some(a => a.toLowerCase() === answer);
-  } else {
-    isCorrect = answer === q.answer.toLowerCase();
-  }
-
-  if (isCorrect) {
+  if (answer === q.answer.toLowerCase()) {
     points++;
     updatePoints();
     revealedParagraph += paragraphParts[currentIndex] ? paragraphParts[currentIndex] + " " : "";
@@ -114,41 +101,43 @@ function checkAnswer(selected = null) {
   }
 }
 
+
 // Update points display
 function updatePoints() {
   const pointsDiv = document.getElementById("points");
   if (pointsDiv) pointsDiv.innerText = `Points: ${points} / ${questions.length}`;
 }
 
-// Show full paragraph, sentence by sentence
+// Create audio element at the top, before quiz starts
+const audio = new Audio("love.mp3"); // make sure path is correct
+audio.loop = false;
+audio.volume = 0.5;
+
 function showFullMessage() {
+  // Change title
   document.getElementById("page-title").innerText = "Awesome Paragraph";
+
   document.getElementById("quiz").classList.add("hidden");
   const msgDiv = document.getElementById("message");
   msgDiv.classList.remove("hidden");
   const para = document.getElementById("full-paragraph");
-  para.style.opacity = 1;
-  para.innerText = "";
+  para.style.opacity = 0;
+  para.innerText = revealedParagraph;
+  fadeIn(para);
 
-  const sentences = revealedParagraph.split(/(?<=[.!?])\s+/);
-  let i = 0;
-  function revealNextSentence() {
-    if (i < sentences.length) {
-      para.innerText += sentences[i] + " ";
-      i++;
-      setTimeout(revealNextSentence, 800);
-    }
-  }
-  revealNextSentence();
-
-  audio.play().catch(err => console.log("Audio playback failed:", err));
+  // Play audio
+  audio.play().catch(err => {
+    console.log("Audio playback failed:", err);
+  });
 }
 
-// Fade in helper
+
+
+// Fade in
 function fadeIn(element) {
   let op = 0;
   const timer = setInterval(() => {
-    if (op >= 1) clearInterval(timer);
+    if(op >= 1) clearInterval(timer);
     element.style.opacity = op;
     op += 0.05;
   }, 20);
