@@ -22,7 +22,7 @@ const questions = [
   { type: "s", question: "What are my favorite foods? (list with commas)", answer: "steak, lobster" },
   { type: "mc", question: "Is my rage bait hella good?", options: ["yes", "yes", "yes"], answer: "yes" },
   { type: "mc", question: "Who wears the pants in the relationship?", options: ["you", "me", "both"], answer: "you" },
-  { type: "mc", question: "What is my favorite name to be called?", options: ["Daddy", "baby", "handsome", "sweet boy"], answer: ["handsome", "daddy"] }
+  { type: "mc", question: "What is my favorite name to be called?", options: ["Daddy", "baby", "handsome", "sweet boy"], answer: "handsome" }
 ];
 
 let currentIndex = 0;
@@ -151,6 +151,7 @@ function showPopup() {
 function closePopup() {
   document.getElementById("popup").classList.add("hidden");
 }
+
 
 
 
