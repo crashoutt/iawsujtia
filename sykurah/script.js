@@ -84,7 +84,17 @@ function checkAnswer(selected = null) {
     answer = selected.toLowerCase();
   }
 
-  if (answer === q.answer.toLowerCase()) {
+  let isCorrect = false;
+
+  if (Array.isArray(q.answer)) {
+    // If answer is an array, check if the selected answer is included (case-insensitive)
+    isCorrect = q.answer.some(a => a.toLowerCase() === answer);
+  } else {
+    // If answer is a string, compare directly
+    isCorrect = answer === q.answer.toLowerCase();
+  }
+
+  if (isCorrect) {
     points++;
     updatePoints();
     revealedParagraph += paragraphParts[currentIndex] ? paragraphParts[currentIndex] + " " : "";
@@ -100,6 +110,7 @@ function checkAnswer(selected = null) {
     showPopup();
   }
 }
+
 
 
 // Update points display
@@ -151,6 +162,7 @@ function showPopup() {
 function closePopup() {
   document.getElementById("popup").classList.add("hidden");
 }
+
 
 
 
