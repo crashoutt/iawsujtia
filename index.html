@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flexings.lol</title>
+  <meta name="description" content="Welcome to Flexings.lol">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192x192.png">
+
+
+  <meta property="og:title" content="flexings.lol">
+  <meta property="og:description" content="Welcome to Flexings.lol">
+  <meta property="og:image" content="https://flexings.lol/assets/imgs/social-share.jpg">
+  <meta property="og:url" content="https://flexings.lol">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="flexings.lol">
+  <meta name="twitter:description" content="Welcome to Flexings.lol">
+  <meta name="twitter:image" content="https://flexings.lol/assets/imgs/social-share.jpg">
+
+
+  <link rel="stylesheet" href="assets/css/home.css">
+
+
+  <meta name="theme-color" content="#1a1a1a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+
+<div class="homepage">
+  <h1 class="homepage-title fade-in">Welcome to <span>flexings.lol</span></h1>
+  <p class="homepage-subtitle fade-in delay-1">
+    Invite-only bio link platform. Get access only by request.
+  </p>
+
+
+  <button class="request-btn fade-in delay-2" id="openInvite">
+    Request Invite
+  </button>
+
+
+  <div class="members-section fade-in delay-3">
+    <hr>
+    <h3>Links:</h3>
+    <ul class="members-list">
+      <li><a href="xxx/">xxx</a></li>
+      <li><a href="yatashi/">Yatashi</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="invite-popup" id="invitePopup">
+  <div class="popup-content">
+    <p>Idk How you get an invite... Be super cool.. or something</p>
+    <img src="assets/imgs/idk.png" alt="IDK Pose">
+    <button class="close-btn" id="closePopup">Close</button>
+  </div>
+</div>
+
+<script>
+  const openBtn = document.getElementById('openInvite');
+  const closeBtn = document.getElementById('closePopup');
+  const popup = document.getElementById('invitePopup');
+
+  openBtn.addEventListener('click', () => {
+    popup.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popup.classList.remove('active');
+  });
+
+
+  window.addEventListener('click', e => {
+    if(e.target === popup) {
+      popup.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>
